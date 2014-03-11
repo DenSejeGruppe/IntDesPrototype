@@ -21,7 +21,7 @@ window.onload = function(){
     var map = canvas.getContext("2d");
 
     var shops = []; //This is the array containing shop
-    refresh(); //Builds the view
+    refresh(); //Builds the view in the canvas and adds the elements to the arrays
     /*
     * These are needed for the view in the bottom and the search functionality
     */
