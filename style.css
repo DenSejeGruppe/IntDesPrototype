@@ -1,0 +1,91 @@
+body{
+	background-color: black;
+}
+
+.mainmenu {
+	background: #0099FF;
+	color: white;
+	font: 'trebuchet ms', trebuchet;
+	font-size: 36px;
+	height: 150px;
+	width: 300px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	border: 0 none;
+	font-weight: bold;
+}
+
+form#search {
+	display: inline;
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#searchbox {
+	background: #eee;
+	padding: 10px;
+	border-radius: 10px 0 0 10px;
+	-moz-border-radius: 10px 0 0 10px;
+	-o-border-radius: 10px 0 0 10px;
+	-webkit-border-radius: 10px 0 0 10px;
+	border: 1px dotted lightgray;
+	margin-left: 2px;
+	width: 750px;
+}
+
+#searchbtn {
+	background: #0099FF;
+	color: white;
+	font: 'trebuchet ms', trebuchet;
+	padding: 11px 20px;
+	border-radius: 0 10px 10px 0;
+	-moz-border-radius: 0 10px 10px 0;
+	-webkit-border-radius: 0 10px 10px 0;
+	-o-border-radius: 0 10px 10px 0;
+	border: 0 none;
+	font-weight: bold;
+	margin-left: -5px;
+}
+
+#menubtn {
+	background: #0099FF;
+	color: white;
+	font: 'trebuchet ms', trebuchet;
+	padding: 11px 20px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	border: 0 none;
+	font-weight: bold;
+	margin-left: -4px;
+}
+
+#main{
+	text-align: center;
+	overflow: auto;
+}
+
+#wrap {
+	background-color: white;
+	height: 950px;
+	width: 1002px;
+	border:1px solid black;
+}
+
+#footerMap{
+	height: 450px;
+	position: relative;
+	width: 1002px;
+	text-align: center;
+	background-color: white;
+	margin-top: -1px;	
+}
+
+ul li input {
+	position: absolute;
+
+}
