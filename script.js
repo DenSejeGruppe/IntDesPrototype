@@ -2,6 +2,7 @@
         // JAMEN HEJ!! ;D 
         //YOYOYOYYOYOYOYOYYY!
         //HEJ MAGNUS!!
+        //Hej Niller!
             window.onload = function(){
 
 
