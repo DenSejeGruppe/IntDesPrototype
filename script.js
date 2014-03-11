@@ -1,9 +1,17 @@
-        //Hej med dig. GitHub test!
-        // JAMEN HEJ!! ;D 
-        //YOYOYOYYOYOYOYOYYY!
-        //HEJ MAGNUS!!
-        //Hej Niller!
-            window.onload = function(){
+        /*
+        HVIS DU BRUGER WINDOWS SÅ HUSK AT BRUGE GIT SHELL OG IKKE DEN ALMINDELINGE WINDOWS CMD!
+        
+        LINJE 1: git add -A: Tilføjer alt det du har ændret til en ny pakke, som du kan ligge i din udbakke i næste linje. -A betyder alle filer.
+        Det er lettest bare at tilføje alle filer selvom du kun har ændret på en fil!
+        LINJE 2: git commit -m "commit besked": Tilføjer den pakke du lige har lavet til udbakken. Vigtigt fordi ellers bliver din kode 
+        overskrevet, når du laver "git pull" i næste linje (husk gåseøjn omkring commit beskeden. Beskeden skal være der, og den må meget gerne være
+        informativ omkring hvad du har lavet!)
+        LINJE 3: git pull: trækker den nyeste version af projektet ned fra serveren. MEGET VIGTIGT, så der ikke opstår fejl,
+        hvis andre retter samtidig med dig!!!
+        LINJE 4: git push: sender din pakke fra udbakken (fra commit) op til serveren, så den kommer til at ligge oppe på nettet
+        */
+
+window.onload = function(){
 
 
             var canvas = document.getElementById("map");
