@@ -1,4 +1,5 @@
-        window.onload = function(){
+        //Hej med dig. GitHub test!
+            window.onload = function(){
 
 
             var canvas = document.getElementById("map");
