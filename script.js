@@ -1,4 +1,5 @@
         //Hej med dig. GitHub test!
+        // JAMEN HEJ!! ;D 
             window.onload = function(){
 
 
