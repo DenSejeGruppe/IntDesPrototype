@@ -203,7 +203,7 @@ function showShopByName(name) {
     function shopView(name){
         name = name.toUpperCase();
         footer.innerHTML = "";
-        logo.setAttribute("src", "");
+        logo.style.visibility = "hidden";
         footer.style.textAlign = "left";
     //The switch statement which makes the right view according to what is given to the method as a parameter
     switch (name) {
@@ -259,7 +259,7 @@ function makeFoetexView() {
     specialOffer2.style.width = "32%";
     specialOffer2.style.display = "inline-block";
     var header2 = document.createElement("h1");
-    header2.textContent = "Tilbud 2";
+    header2.textContent = "Tilbud 2 i Føtex";
     specialOffer2.appendChild(header2);
     var textArea2 = document.createElement("p");
     textArea2.textContent = "bla bla bla blaa lfadsklfas lkfsadj æ";
@@ -274,7 +274,7 @@ function makeFoetexView() {
     specialOffer1.style.width = "32%";
     specialOffer1.style.display = "inline-block";
     var header1 = document.createElement("h1");
-    header1.textContent = "Tilbud 1";
+    header1.textContent = "Tilbud 1 i Føtex";
     specialOffer1.appendChild(header1);
     var textArea1 = document.createElement("p");
     textArea1.textContent = "bla bla bla blaa lfadsklfas lkfsadj æ";
@@ -282,6 +282,9 @@ function makeFoetexView() {
 
     //And added to the footer
     footer.appendChild(specialOffer1);
+    logo.style.visibility = "visible";
+    logo.setAttribute("src", "http://åbningstider.net/wp-content/uploads/2011/01/føtex-508x250-300x147.jpg"); //Make the logo into a føtex logo to show that we are looking at føtex
+
 }
 function makeSkoView() {
     //Here the div for the shops is created and styled to look right in the view. The headline is created and added as well
