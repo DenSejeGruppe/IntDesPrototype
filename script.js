@@ -71,6 +71,17 @@ window.onload = function(){
 
     }
 
+    function drawPathEcco(){
+        
+        aktivitetPath.beginPath();
+        aktivitetPath.moveTo(890, 140);
+        aktivitetPath.lineTo(320, 520);
+        aktivitetPath.arc(320, 520, 10, 0, 2 * Math.PI, false); 
+        aktivitetPath.strokeStyle="red";
+        aktivitetPath.stroke();
+
+    }
+
     refresh(); //Builds the view in the canvas and adds the elements to the arrays
     /*
     * These are needed for the view in the bottom and the search functionality
@@ -358,6 +369,7 @@ function showShopByName(name) {
         drawPathFotex();
         break;
         case "ECCO":
+        drawPathEcco();
         makeEkkoView();
         break;
         case "SKO":
