@@ -111,11 +111,13 @@ window.onload = function(){
 var kat = document.getElementById("kat");
 kat.addEventListener("click", function(){
     var clear = document.getElementById("menu");
-    var clear2 = document.getElementById("logo");
+    var clear2 = document.getElementById("logoDiv");
     clear.innerHTML = "";
+    clear2.innerHTML ="";
     
 
     var activity3 = document.createElement("div");
+    activity3.setAttribute("id", "katDiv")
     activity3.style.float = "left";
     activity3.style.display = "inline-block";
     var header3 = document.createElement("h1");
