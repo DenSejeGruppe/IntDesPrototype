@@ -108,6 +108,56 @@ window.onload = function(){
     footer.appendChild(shopsDiv);
 });
 
+var kat = document.getElementById("kat");
+kat.addEventListener("click", function(){
+    var clear = document.getElementById("menu");
+    var clear2 = document.getElementById("logo");
+    clear.innerHTML = "";
+    
+
+    var activity3 = document.createElement("div");
+    activity3.style.float = "left";
+    activity3.style.display = "inline-block";
+    var header3 = document.createElement("h1");
+    header3.textContent = "Butikker i centret ligger inden for følgende kategorier";
+    activity3.appendChild(header3);
+    var textArea3 = document.createElement("p");
+    textArea3.innerHTML = "Aktivitetsområde";
+    activity3.appendChild(textArea3);
+    var textArea4 = document.createElement("p");
+    textArea4.innerHTML = "Bolig og elektronik";
+    activity3.appendChild(textArea4);
+    var textArea5 = document.createElement("p");
+    textArea5.innerHTML = "Cafe og restauranter";
+    activity3.appendChild(textArea5);
+    var textArea6 = document.createElement("p");
+    textArea6.innerHTML = "Dagligvarer";
+    activity3.appendChild(textArea6); 
+    var textArea7 = document.createElement("p");
+    textArea7.innerHTML = "Indgang";
+    activity3.appendChild(textArea7);
+    var textArea8 = document.createElement("p");
+    textArea8.innerHTML = "Mode børn";
+    activity3.appendChild(textArea8);
+    var textArea9 = document.createElement("p");
+    textArea9.innerHTML = "Mode damer";
+    activity3.appendChild(textArea9);
+    var textArea10 = document.createElement("p");
+    textArea10.innerHTML = "Mode herre";
+    activity3.appendChild(textArea10);
+    var textArea11 = document.createElement("p");
+    textArea10.innerHTML = "Personlig pleje";
+    activity3.appendChild(textArea11);   
+    var textArea13 = document.createElement("p");
+    textArea13.innerHTML = "Sko";
+    activity3.appendChild(textArea13);
+
+    //Here the list is added to the containing div and the containing div is added to the footer
+    footer.appendChild(activity3);
+});
+
+
+
 
 searchButton.addEventListener("click", function() {
     var searchString = document.getElementById("searchbox").value;
