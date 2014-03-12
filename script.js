@@ -385,10 +385,10 @@ function showShopByName(name) {
     //The switch statement which makes the right view according to what is given to the method as a parameter
     switch (name) {
         case "FØTEX":
-        drawDirection("føtex");
+        makeFoetexView();
         break;
         case "SKO":
-        drawDirection("sko");
+        makeSkoView();
         break;
         case "AKTIVITET A":
         case "NEPHEW":
