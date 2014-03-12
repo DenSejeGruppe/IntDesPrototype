@@ -88,8 +88,8 @@ window.onload = function(){
         
         aktivitetPath.beginPath();
         aktivitetPath.moveTo(890, 140);
-        aktivitetPath.lineTo(320, 520);
-        aktivitetPath.arc(320, 520, 10, 0, 2 * Math.PI, false); 
+        aktivitetPath.lineTo(320, 140);
+        aktivitetPath.arc(310, 520, 10, 0, 2 * Math.PI, false); 
         aktivitetPath.strokeStyle="red";
         aktivitetPath.stroke();
 
