@@ -357,6 +357,9 @@ function showShopByName(name) {
         makeFoetexView();
         drawPathFotex();
         break;
+        case "ECCO":
+        makeEkkoView();
+        break;
         case "SKO":
         makeSkoView();
         drawPathSko();
@@ -435,6 +438,67 @@ function makeFoetexView() {
     logo.setAttribute("src", "http://åbningstider.net/wp-content/uploads/2011/01/føtex-508x250-300x147.jpg"); //Make the logo into a føtex logo to show that we are looking at føtex
 
 }
+
+function makeEkkoView() {
+    //Here the div for the opening hours is created and styled to look right in the view. The headline is created and added as well
+    var openingHours = document.createElement("div");
+    openingHours.style.float = "left;"
+    openingHours.style.width = "32%";
+    openingHours.style.display = "inline-block";
+    var openingHeadline = document.createElement("h1");
+    openingHeadline.textContent = "Åbningstider";
+    openingHours.appendChild(openingHeadline);
+
+    //Here the list containing the opening hours is created
+    var list = document.createElement("ul");
+    var weekdays = document.createElement("li")
+    weekdays.textContent = "Mandag-torsdag 07-22";
+    list.appendChild(weekdays);
+    var friday = document.createElement("li");
+    friday.textContent = "Fredag 07-20";
+    list.appendChild(friday);
+    var weekend = document.createElement("li");
+    weekend.textContent = "Lørdag-søndag 08-18";
+    list.appendChild(weekend);
+
+    //Here the list is added to the containing div and the containing div is added to the footer
+    openingHours.appendChild(list);
+    footer.appendChild(openingHours);
+
+    //Here the first special offer is created and styled to look right in the view
+    var specialOffer2 = document.createElement("div");
+    specialOffer2.style.float = "right";
+    specialOffer2.style.width = "32%";
+    specialOffer2.style.display = "inline-block";
+    var header2 = document.createElement("h1");
+    header2.textContent = "Tilbud 2 i Ecco";
+    specialOffer2.appendChild(header2);
+    var textArea2 = document.createElement("p");
+    textArea2.textContent = "bla bla bla blaa lfadsklfas lkfsadj æ";
+    specialOffer2.appendChild(textArea2);
+
+    //Here the first special offter is added to the footer
+    footer.appendChild(specialOffer2);
+
+    //Here the second special offer is created and styled to look right in the view
+    var specialOffer1 = document.createElement("div");
+    specialOffer1.style.float = "right";
+    specialOffer1.style.width = "32%";
+    specialOffer1.style.display = "inline-block";
+    var header1 = document.createElement("h1");
+    header1.textContent = "Tilbud 1 i Ecco";
+    specialOffer1.appendChild(header1);
+    var textArea1 = document.createElement("p");
+    textArea1.textContent = "bla bla bla blaa lfadsklfas lkfsadj æ";
+    specialOffer1.appendChild(textArea1);
+
+    //And added to the footer
+    footer.appendChild(specialOffer1);
+    logo.style.visibility = "visible";
+    logo.setAttribute("src", "http://shopblackfriday.ca/wp-content/uploads/2013/11/ecco-logo.gif"); //Make the logo into an ecco logo to show that we are looking at føtex
+
+}
+
 function makeSkoView() {
     //Here the div for the shops is created and styled to look right in the view. The headline is created and added as well
     var shopsDiv = document.createElement("div");
