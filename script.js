@@ -532,43 +532,4 @@ function makeActivityView() {
 
 }
 
-/* THIS WOULD HAVE BEEN A SEPERATE FUNCTION BUT IT'S USED ON LINE 34 INSTEAD
-function ABCView() {
-    //Here the div for the shops is created and styled to look right in the view. The headline is created and added as well
-    var clear = document.getElementById("menu");
-    var clear2 = document.getElementById("logo");
-
-    clear.innerHTML = "";
-    clear2.style.visibility = "hidden";
-
-    //Funtionen herunder sorterer butikkerne alfabetisk efter navn
-    shops.sort(function(a, b) {
-        var textA = a.name.toUpperCase();
-        var textB = b.name.toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-    });
-
-    var shopsDiv = document.createElement("div");
-    shopsDiv.setAttribute("id", "listWrapper");
-    //shopsDiv.style.float = "left";
-    //shopsDiv.style.height = "100%";
-    //shopsDiv.style.display = "inline-block";
-    var shopHeadline = document.createElement("h1");
-    shopHeadline.textContent = "Butikker i centret";
-    shopsDiv.appendChild(shopHeadline);
-
-    //Here the list containing the shops is created
-    var list = document.createElement("ul");
-
-    for(var shopIndex in shops) {
-        var shop = document.createElement("li")
-        shop.textContent = shops[shopIndex].name;
-        list.appendChild(shop);
-    }
-    //Here the list is added to the containing div and the containing div is added to the footer
-    shopsDiv.appendChild(list);
-    footer.appendChild(shopsDiv);
-} 
-*/
-
 };
