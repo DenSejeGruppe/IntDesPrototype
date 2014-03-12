@@ -31,12 +31,47 @@ window.onload = function(){
     var logo = document.getElementById("logo");
     var searchButton = document.getElementById("searchbtn");
     var abc = document.getElementById("abc");
-    abc.addEventListener("click", ABCView());
+    abc.addEventListener("click", function(){
+        //Here the div for the shops is created and styled to look right in the view. The headline is created and added as well
+        var clear = document.getElementById("menu");
+        var clear2 = document.getElementById("logoDiv");
+
+        clear.innerHTML = "";
+        clear2.innerHTML = "";
+
+    //Funtionen herunder sorterer butikkerne alfabetisk efter navn
+    shops.sort(function(a, b) {
+        var textA = a.name.toUpperCase();
+        var textB = b.name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+
+    var shopsDiv = document.createElement("div");
+    shopsDiv.setAttribute("id", "listWrapper");
+    var shopHeadline = document.createElement("h1");
+    shopHeadline.textContent = "Butikker i centret";
+    shopsDiv.appendChild(shopHeadline);
+
+    //Here the list containing the shops is created
+    var list = document.createElement("ul");
+
+    for(var shopIndex in shops) {
+        var shopLinks = document.createElement("a");
+        shopLinks.setAttribute("href", "#");
+        var shop = document.createElement("li");
+        shopLinks.textContent = shops[shopIndex].name;
+        shop.appendChild(shopLinks);
+        list.appendChild(shop);
+    }
+    //Here the list is added to the containing div and the containing div is added to the footer
+    shopsDiv.appendChild(list);
+    footer.appendChild(shopsDiv);
+});
 
 
-    searchButton.addEventListener("click", function() {
-        var searchString = document.getElementById("searchbox").value;
-        searchString = searchString.toUpperCase();
+searchButton.addEventListener("click", function() {
+    var searchString = document.getElementById("searchbox").value;
+    searchString = searchString.toUpperCase();
     refresh(); //Resets the card view
     for(var shopIndex in shops){
 
@@ -55,8 +90,6 @@ window.onload = function(){
         }
         else if(searchString == "NEPHEW") {
             showShopByName("Aktivitet A");
-        }else if(searchString == "ABC"){
-            ABCView();
         }
     }
 });
@@ -398,6 +431,7 @@ function makeActivityView() {
 
 }
 
+/* THIS WOULD HAVE BEEN A SEPERATE FUNCTION BUT IT'S USED ON LINE 34 INSTEAD
 function ABCView() {
     //Here the div for the shops is created and styled to look right in the view. The headline is created and added as well
     var clear = document.getElementById("menu");
@@ -408,40 +442,32 @@ function ABCView() {
 
     //Funtionen herunder sorterer butikkerne alfabetisk efter navn
     shops.sort(function(a, b) {
-    var textA = a.name.toUpperCase();
-    var textB = b.name.toUpperCase();
-    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        var textA = a.name.toUpperCase();
+        var textB = b.name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     });
 
     var shopsDiv = document.createElement("div");
-    shopsDiv.style.float = "left";
-    shopsDiv.style.height = "100%";
-    shopsDiv.style.display = "inline-block";
+    shopsDiv.setAttribute("id", "listWrapper");
+    //shopsDiv.style.float = "left";
+    //shopsDiv.style.height = "100%";
+    //shopsDiv.style.display = "inline-block";
     var shopHeadline = document.createElement("h1");
     shopHeadline.textContent = "Butikker i centret";
     shopsDiv.appendChild(shopHeadline);
 
     //Here the list containing the shops is created
     var list = document.createElement("ul");
-    var list2 = document.createElement("ul");
-    var list3 = document.createElement("ul");
 
     for(var shopIndex in shops) {
         var shop = document.createElement("li")
         shop.textContent = shops[shopIndex].name;
         list.appendChild(shop);
     }
-
     //Here the list is added to the containing div and the containing div is added to the footer
     shopsDiv.appendChild(list);
     footer.appendChild(shopsDiv);
-}
+} 
+*/
 
 };
-
-
-
-
-
-
-
