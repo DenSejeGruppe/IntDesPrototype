@@ -448,6 +448,7 @@ function makeEkkoView() {
     var openingHeadline = document.createElement("h1");
     openingHeadline.textContent = "Åbningstider";
     openingHours.appendChild(openingHeadline);
+    katbtn.style.visibility = "visible";
 
     //Here the list containing the opening hours is created
     var list = document.createElement("ul");
