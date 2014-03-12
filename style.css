@@ -90,3 +90,22 @@ ul li input {
 	position: absolute;
 
 }
+
+#listWrapper ul {
+	width: 30em;
+	float: left;
+	height: 100%;
+	display: inline-block;
+	list-style-type: none;
+	margin: 0 auto 0 auto;
+}
+
+#listWrapper ul li {
+	float: left;
+	width: 10em;
+}
+
+div#listWrapper{
+	margin-bottom: 1em;
+	font-family: 'trebuchet ms', trebuchet;
+}
