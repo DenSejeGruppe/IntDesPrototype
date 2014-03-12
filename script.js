@@ -18,18 +18,19 @@ window.onload = function(){
     */
 
     var canvas = document.getElementById("map");
+    var aktivitetPath = canvas.getContext("2d");
     canvas.addEventListener("mousedown", clickOnCanvas, false);
     var map = canvas.getContext("2d");
-    map.save();
 
     var directionPoints = []; //All the points where the the direction can be changes
     var shops = []; //This is the array containing shop
+
 
     function changeDirectionPoint(x, y, left, right, up, down) {
         this.x = x;
         this.y = y;
         this.left = left;
-        this.right = right
+        this.right = right;
         this.up = up;
         this.down = down;
     }
@@ -42,7 +43,7 @@ window.onload = function(){
     var point2 = new changeDirectionPoint(320, 390, true, false, true, true);
     var point3 = new changeDirectionPoint(110, 395, true, true, false, true);
     var point4 = new changeDirectionPoint(110, 590, true, true, true, false);
-    var point5 = new changeDirectionPoint(170, 590, true, true, false, true)
+    var point5 = new changeDirectionPoint(170, 590, true, true, false, true);
     var point6 = new changeDirectionPoint(250, 590, true, false, true, true);
     var point7 = new changeDirectionPoint(165, 790, true, true, true, false);
     var point8 = new changeDirectionPoint(320, 790, true, false, true, false);
@@ -61,7 +62,40 @@ window.onload = function(){
     directionPoints.push(point7);
     directionPoints.push(point8);
 
+    function drawPathAktivitet(){
+        aktivitetPath.beginPath();
+        aktivitetPath.moveTo(890, 140);
+        aktivitetPath.lineTo(320, 140);
+        aktivitetPath.lineTo(320, 690);
+        aktivitetPath.arc(320, 690, 10, 0, 2 * Math.PI, false); 
+        aktivitetPath.strokeStyle="red";
+        aktivitetPath.stroke();
+    }
 
+    function drawPathFotex(){
+        
+        
+        aktivitetPath.beginPath();
+        aktivitetPath.moveTo(890, 140);
+        aktivitetPath.lineTo(600, 140);
+        aktivitetPath.arc(600, 140, 10, 0, 2 * Math.PI, false); 
+        aktivitetPath.strokeStyle="red";
+        aktivitetPath.stroke();
+
+    }
+
+    function drawPathSko(){
+        
+        aktivitetPath.beginPath();
+        aktivitetPath.moveTo(890, 140);
+        aktivitetPath.arc(630, 140, 10, 0, 2 * Math.PI, false); 
+        aktivitetPath.lineTo(320, 140);
+        aktivitetPath.lineTo(320, 520);
+        aktivitetPath.arc(320, 520, 10, 0, 2 * Math.PI, false); 
+        aktivitetPath.strokeStyle="red";
+        aktivitetPath.stroke();
+
+    }
 
     refresh(); //Builds the view in the canvas and adds the elements to the arrays
     /*
@@ -86,6 +120,8 @@ window.onload = function(){
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     });
 
+
+
     var shopsDiv = document.createElement("div");
     shopsDiv.setAttribute("id", "listWrapper");
     var shopHeadline = document.createElement("h1");
@@ -108,13 +144,13 @@ window.onload = function(){
     footer.appendChild(shopsDiv);
 });
 
-var kat = document.getElementById("kat");
-kat.addEventListener("click", function(){
+    var kat = document.getElementById("kat");
+    kat.addEventListener("click", function(){
     var clear = document.getElementById("menu");
     var clear2 = document.getElementById("logo");
     clear.innerHTML = "";
+    clear2.style.visibility="hidden";
     
-
     var activity3 = document.createElement("div");
     activity3.style.float = "left";
     activity3.style.display = "inline-block";
@@ -151,13 +187,11 @@ kat.addEventListener("click", function(){
     var textArea13 = document.createElement("p");
     textArea13.innerHTML = "Sko";
     activity3.appendChild(textArea13);
+    
 
     //Here the list is added to the containing div and the containing div is added to the footer
     footer.appendChild(activity3);
 });
-
-
-
 
 searchButton.addEventListener("click", function() {
     var searchString = document.getElementById("searchbox").value;
@@ -189,8 +223,7 @@ searchButton.addEventListener("click", function() {
 */
 
 function refresh() {
-    map.restore
-    map.clearRect(0, 0, 850, 1000);
+    canvas.width= canvas.width;
     shops = []; //Resets the shops array in order to not add shops more than once!
     //This is the top row of shops
     addShop("H&M", "Mode børn","#0099FF", 0, 20, 0, 295, 100);
@@ -210,9 +243,6 @@ function refresh() {
     /*
     *Draws a red circle to indicate where you are
     */
-    map.arc(890, 140, 10, 0, 2 * Math.PI, false);
-    map.fillStyle = "red";
-    map.fill();
 
     addShop("Misiter minit", "Service","#0099FF", 850, 170, 0, 50, 50);
 
@@ -242,7 +272,6 @@ function refresh() {
     addShop("Indgang B", "Indgang","grey", 350, 230, 0, 75, 30);
     addShop("FøTeXbageren", "Cafe og restaurant","#0099FF", 350, 170, 0, 75, 55);
     addShop("FøTeX", "Dagligvarer","#0099FF", 430, 170, 0, 415, 730);
-
 }
 
 /*
@@ -260,40 +289,7 @@ function registerShop(name, category, color, x, y, rotation, sizeX, sizeY) {
     this.sizeY = sizeY;
 }
 
-/*
-* This function exploits the array of direction points array to draw a direction line
-*/
-
-function drawDirection(shopName) {
-    shopName = shopName.toUpperCase();
-    switch(shopName) {
-        case "FØTEX":
-            map.moveTo(890, 140);
-            map.lineTo(675, 140);
-            map.stroke();
-            map.arc(675, 140, 10, 0, 2 * Math.PI, false);
-            map.fillStyle = "green";
-            map.fill();
-            break;
-        case "SKO":
-            map.moveTo(890, 140);
-            map.lineTo(630, 140);
-            map.stroke();
-            map.arc(630, 140, 10, 0, 2 * Math.PI, false);
-            map.fillStyle = "green";
-            map.fill();
-            map.moveTo(630, 140);
-            map.lineTo(320, 140);
-            map.stroke();
-
-            map.moveTo(320, 140);
-            map.lineTo(320, 510);
-            map.stroke();
-            map.arc(320, 510, 10, 0, 2 * Math.PI, false);
-            map.fillStyle = "green";
-            map.fill();
-            break;
-    }
+function getDirections(shopName) {
 
 }
 
@@ -384,15 +380,18 @@ function showShopByName(name) {
         footer.style.textAlign = "left";
     //The switch statement which makes the right view according to what is given to the method as a parameter
     switch (name) {
-        case "FØTEX":
+        case "FØTEX": 
         makeFoetexView();
+        drawPathFotex();
         break;
         case "SKO":
         makeSkoView();
+        drawPathSko();
         break;
         case "AKTIVITET A":
         case "NEPHEW":
         makeActivityView();
+        drawPathAktivitet();
         break;
     }
 }
