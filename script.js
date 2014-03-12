@@ -21,7 +21,46 @@ window.onload = function(){
     canvas.addEventListener("mousedown", clickOnCanvas, false);
     var map = canvas.getContext("2d");
 
+    var directionPoints = []; //All the points where the the direction can be changes
     var shops = []; //This is the array containing shop
+
+    function changeDirectionPoint(x, y, left, right, up, down) {
+        this.x = x;
+        this.y = y;
+        this.left = left;
+        this.right = right;
+        this.up = up;
+        this.down = down;
+    }
+
+    /*
+    *Hardcodes all the points where the direction can be changed together with a boolean value telling wheter it can be change either left or right
+    */
+
+    var point1 = new changeDirectionPoint(320, 140, true, true, false, true);
+    var point2 = new changeDirectionPoint(320, 390, true, false, true, true);
+    var point3 = new changeDirectionPoint(110, 395, true, true, false, true);
+    var point4 = new changeDirectionPoint(110, 590, true, true, true, false);
+    var point5 = new changeDirectionPoint(170, 590, true, true, false, true);
+    var point6 = new changeDirectionPoint(250, 590, true, false, true, true);
+    var point7 = new changeDirectionPoint(165, 790, true, true, true, false);
+    var point8 = new changeDirectionPoint(320, 790, true, false, true, false);
+
+
+    /*
+    *Adds all the points to an array so that we can iterate through them
+    */
+
+    directionPoints.push(point1);
+    directionPoints.push(point2);
+    directionPoints.push(point3);
+    directionPoints.push(point4);
+    directionPoints.push(point5);
+    directionPoints.push(point6);
+    directionPoints.push(point7);
+    directionPoints.push(point8);
+
+
 
     refresh(); //Builds the view in the canvas and adds the elements to the arrays
     /*
@@ -115,6 +154,13 @@ function refresh() {
 
     //The row just below the top row
     addShop("Indgang C", "Indgang","grey", 905, 120, 0, 95, 50);
+    /*
+    *Draws a red circle to indicate where you are
+    */
+    map.arc(890, 140, 10, 0, 2 * Math.PI, false);
+    map.fillStyle = "red";
+    map.fill();
+
     addShop("Misiter minit", "Service","#0099FF", 850, 170, 0, 50, 50);
 
 
@@ -145,6 +191,7 @@ function refresh() {
     addShop("FøTeX", "Dagligvarer","#0099FF", 430, 170, 0, 415, 730);
 
 }
+
 /*
 * This is the constructor function for creating the shop objecets representing our shop
 */
@@ -158,6 +205,10 @@ function registerShop(name, category, color, x, y, rotation, sizeX, sizeY) {
     this.rotation = rotation;
     this.sizeX = sizeX;
     this.sizeY = sizeY;
+}
+
+function getDirections(shopName) {
+
 }
 
 /*
