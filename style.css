@@ -34,7 +34,7 @@ form#search {
 	-webkit-border-radius: 10px 0 0 10px;
 	border: 1px dotted lightgray;
 	margin-left: 2px;
-	width: 700px;
+	width: 600px;
 }
 
 #searchbtn {
@@ -52,7 +52,7 @@ form#search {
 	font-size: 24px;
 }
 
-#menubtn {
+.searchmenu {
 	background: #0099FF;
 	color: white;
 	font-family: 'trebuchet ms', trebuchet;
@@ -63,7 +63,7 @@ form#search {
 	-o-border-radius: 10px;
 	border: 0 none;
 	font-weight: bold;
-	margin-left: -4px;W
+	margin-left: -4px;
 	font-size: 24px;
 }
 
@@ -91,7 +91,6 @@ form#search {
 
 ul li input {
 	position: absolute;
-
 }
 
 #listWrapper ul {

@@ -16,12 +16,13 @@ window.onload = function(){
     /*
     * Needed to get our canvas element, map, that we can draw on
     */
-
+    var logo = document.getElementById("logoDiv");
     var canvas = document.getElementById("map");
     var aktivitetPath = canvas.getContext("2d");
     canvas.addEventListener("mousedown", clickOnCanvas, false);
     var map = canvas.getContext("2d");
-
+    var katbtn = document.getElementById("katbtn");
+    katbtn.style.visibility = "hidden";
     var directionPoints = []; //All the points where the the direction can be changes
     var shops = []; //This is the array containing shop
 
@@ -75,7 +76,6 @@ window.onload = function(){
     * These are needed for the view in the bottom and the search functionality
     */
     var footer = document.getElementById("menu");
-    var logo = document.getElementById("logo");
     var searchButton = document.getElementById("searchbtn");
     var abc = document.getElementById("abc");
     abc.addEventListener("click", function(){
@@ -349,7 +349,7 @@ function showShopByName(name) {
     function shopView(name){
         name = name.toUpperCase();
         footer.innerHTML = "";
-        logo.style.visibility = "hidden";
+
         footer.style.textAlign = "left";
     //The switch statement which makes the right view according to what is given to the method as a parameter
     switch (name) {
@@ -385,6 +385,7 @@ function makeFoetexView() {
     var openingHeadline = document.createElement("h1");
     openingHeadline.textContent = "Åbningstider";
     openingHours.appendChild(openingHeadline);
+    katbtn.style.visibility ="visible";
 
     //Here the list containing the opening hours is created
     var list = document.createElement("ul");
@@ -431,7 +432,6 @@ function makeFoetexView() {
 
     //And added to the footer
     footer.appendChild(specialOffer1);
-    logo.style.visibility = "visible";
     logo.setAttribute("src", "http://åbningstider.net/wp-content/uploads/2011/01/føtex-508x250-300x147.jpg"); //Make the logo into a føtex logo to show that we are looking at føtex
 
 }
@@ -444,6 +444,7 @@ function makeSkoView() {
     var shopHeadline = document.createElement("h1");
     shopHeadline.textContent = "Butikker i denne kategori";
     shopsDiv.appendChild(shopHeadline);
+    katbtn.style.visibility = "visible";
 
     //Here the list containing the shops is created
     var list = document.createElement("ul");
@@ -504,6 +505,7 @@ function makeActivityView() {
     var textArea3 = document.createElement("p");
     textArea3.innerHTML = "Torsdag d. 31/3 fra 12-24. <br /> Super kedeligt, men mega godt hvis du gerne vil sove godt eller er mega matematik freak";
     activity3.appendChild(textArea3);
+    katbtn.style.visibility = "visible";
 
     //And added to the footer
     footer.appendChild(activity3);
