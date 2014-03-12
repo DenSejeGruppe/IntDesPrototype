@@ -27,21 +27,21 @@ form#search {
 
 #searchbox {
 	background: #eee;
-	padding: 10px;
+	padding: 25px;
 	border-radius: 10px 0 0 10px;
 	-moz-border-radius: 10px 0 0 10px;
 	-o-border-radius: 10px 0 0 10px;
 	-webkit-border-radius: 10px 0 0 10px;
 	border: 1px dotted lightgray;
 	margin-left: 2px;
-	width: 750px;
+	width: 700px;
 }
 
 #searchbtn {
 	background: #0099FF;
 	color: white;
-	font: 'trebuchet ms', trebuchet;
-	padding: 11px 20px;
+	font-family: 'trebuchet ms', trebuchet;
+	padding: 20px 30px;
 	border-radius: 0 10px 10px 0;
 	-moz-border-radius: 0 10px 10px 0;
 	-webkit-border-radius: 0 10px 10px 0;
@@ -49,20 +49,22 @@ form#search {
 	border: 0 none;
 	font-weight: bold;
 	margin-left: -5px;
+	font-size: 24px;
 }
 
 #menubtn {
 	background: #0099FF;
 	color: white;
-	font: 'trebuchet ms', trebuchet;
-	padding: 11px 20px;
+	font-family: 'trebuchet ms', trebuchet;
+	padding: 20px 30px;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-o-border-radius: 10px;
 	border: 0 none;
 	font-weight: bold;
-	margin-left: -4px;
+	margin-left: -4px;W
+	font-size: 24px;
 }
 
 #main{
