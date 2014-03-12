@@ -82,6 +82,9 @@ function refresh() {
 
     //The row just below the top row
     addShop("Indgang C", "Indgang","grey", 905, 120, 0, 95, 50);
+    map.arc(890, 140, 10, 0, 2 * Math.PI), false;
+    map.fillStyle = "red";
+    map.fill();
     addShop("Misiter minit", "Service","#0099FF", 850, 170, 0, 50, 50);
 
 
