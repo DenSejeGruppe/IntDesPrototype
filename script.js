@@ -16,11 +16,13 @@ window.onload = function(){
     /*
     * Needed to get our canvas element, map, that we can draw on
     */
+
     var canvas = document.getElementById("map");
     canvas.addEventListener("mousedown", clickOnCanvas, false);
     var map = canvas.getContext("2d");
 
     var shops = []; //This is the array containing shop
+
     refresh(); //Builds the view in the canvas and adds the elements to the arrays
     /*
     * These are needed for the view in the bottom and the search functionality
@@ -28,10 +30,13 @@ window.onload = function(){
     var footer = document.getElementById("menu");
     var logo = document.getElementById("logo");
     var searchButton = document.getElementById("searchbtn");
+    var abc = document.getElementById("abc");
+    abc.addEventListener("click", ABCView());
 
-searchButton.addEventListener("click", function() {
-    var searchString = document.getElementById("searchbox").value;
-    searchString = searchString.toUpperCase();
+
+    searchButton.addEventListener("click", function() {
+        var searchString = document.getElementById("searchbox").value;
+        searchString = searchString.toUpperCase();
     refresh(); //Resets the card view
     for(var shopIndex in shops){
 
@@ -50,6 +55,8 @@ searchButton.addEventListener("click", function() {
         }
         else if(searchString == "NEPHEW") {
             showShopByName("Aktivitet A");
+        }else if(searchString == "ABC"){
+            ABCView();
         }
     }
 });
@@ -190,13 +197,13 @@ function showShops(category, name) {
 */
 function showShopByName(name) {
     shopView(name); //Generates the view in the bottom
-        for (var shopIndex in shops) {
-            if(shops[shopIndex].name === name) {
-                shops[shopIndex].color = "green";
-                makeRectangularShop(shops[shopIndex]);
-            }
+    for (var shopIndex in shops) {
+        if(shops[shopIndex].name === name) {
+            shops[shopIndex].color = "green";
+            makeRectangularShop(shops[shopIndex]);
         }
     }
+}
     /*
     * This function empties the footer completely and builds a new view in it. It builds the right view according to the switch statement
     */
@@ -303,8 +310,8 @@ function makeSkoView() {
         if(shops[shopIndex].category === "Sko"){
             shop.textContent = shops[shopIndex].name;
             list.appendChild(shop);
+        }
     }
-}
 
     //Here the list is added to the containing div and the containing div is added to the footer
     shopsDiv.appendChild(list);
@@ -389,9 +396,51 @@ function makeActivityView() {
     //And added to the footer
     footer.appendChild(activity1);
 
+}
+
+function ABCView() {
+    //Here the div for the shops is created and styled to look right in the view. The headline is created and added as well
+    var clear = document.getElementById("menu");
+    var clear2 = document.getElementById("logo");
+
+    clear.innerHTML = "";
+    clear2.style.visibility = "hidden";
+
+    //Funtionen herunder sorterer butikkerne alfabetisk efter navn
+    shops.sort(function(a, b) {
+    var textA = a.name.toUpperCase();
+    var textB = b.name.toUpperCase();
+    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+
+    var shopsDiv = document.createElement("div");
+    shopsDiv.style.float = "left";
+    shopsDiv.style.height = "100%";
+    shopsDiv.style.display = "inline-block";
+    var shopHeadline = document.createElement("h1");
+    shopHeadline.textContent = "Butikker i centret";
+    shopsDiv.appendChild(shopHeadline);
+
+    //Here the list containing the shops is created
+    var list = document.createElement("ul");
+    var list2 = document.createElement("ul");
+    var list3 = document.createElement("ul");
+
+    for(var shopIndex in shops) {
+        var shop = document.createElement("li")
+        shop.textContent = shops[shopIndex].name;
+        list.appendChild(shop);
     }
 
+    //Here the list is added to the containing div and the containing div is added to the footer
+    shopsDiv.appendChild(list);
+    footer.appendChild(shopsDiv);
+}
+
 };
+
+
+
 
 
 

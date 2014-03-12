@@ -74,6 +74,7 @@ form#search {
 	height: 950px;
 	width: 1002px;
 	border:1px solid black;
+	overflow: visible;
 }
 
 #footerMap{
