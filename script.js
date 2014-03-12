@@ -23,6 +23,19 @@ window.onload = function(){
     var map = canvas.getContext("2d");
     var katbtn = document.getElementById("katbtn");
     katbtn.style.visibility = "hidden";
+    var currentShop;
+
+    var categoryButton = document.getElementById("katbtn");
+    categoryButton.addEventListener("click", function() {
+        var currentShopName = currentShop.name.toUpperCase();
+        if (currentShopName == "FØTEX") {
+            showShops(currentShop.category);
+        }
+        if (currentShopName == "ECCO") {
+            showShops(currentShop.category);
+        }
+
+    });
     var directionPoints = []; //All the points where the the direction can be changes
     var shops = []; //This is the array containing shop
 
@@ -319,7 +332,8 @@ function clickOnCanvas() {
         xStart = shops[shopIndex].x;
         yStart = shops[shopIndex].y;
         if(xClick - xStart < shops[shopIndex].sizeX && xClick - xStart > 0 && yClick - yStart < shops[shopIndex].sizeY && yClick - yStart > 0){
-            showShops(shops[shopIndex].category, shops[shopIndex].name);
+            currentShop = shops[shopIndex];
+            showShopByName(shops[shopIndex].name);
         } 
     }
 }
@@ -371,6 +385,9 @@ function showShopByName(name) {
         case "ECCO":
         drawPathEcco();
         makeEkkoView();
+        break;
+        case "DAGLIGVARER":
+        makeDagligvarerView();
         break;
         case "SKO":
         makeSkoView();
@@ -512,6 +529,64 @@ function makeEkkoView() {
 
 }
 
+function makeDagligvarerView() {
+    //Here the div for the shops is created and styled to look right in the view. The headline is created and added as well
+    var shopsDiv = document.createElement("div");
+    shopsDiv.style.float = "left;"
+    shopsDiv.style.width = "32%";
+    shopsDiv.style.display = "inline-block";
+    var shopHeadline = document.createElement("h1");
+    shopHeadline.textContent = "Butikker indenfor dagligvarer";
+    shopsDiv.appendChild(shopHeadline);
+    katbtn.style.visibility = "visible";
+
+    //Here the list containing the shops is created
+    var list = document.createElement("ul");
+    for(var shopIndex in shops) {
+        var shop = document.createElement("li")
+        if(shops[shopIndex].category === "Dagligvarer"){
+            shop.textContent = shops[shopIndex].name;
+            list.appendChild(shop);
+        }
+    }
+
+    //Here the list is added to the containing div and the containing div is added to the footer
+    shopsDiv.appendChild(list);
+    footer.appendChild(shopsDiv);
+
+
+    //Here the first special offer is created and styled to look right in the view
+    var specialOffer2 = document.createElement("div");
+    specialOffer2.style.float = "right";
+    specialOffer2.style.width = "32%";
+    specialOffer2.style.display = "inline-block";
+    var header2 = document.createElement("h1");
+    header2.textContent = "Tilbud 2 indenfor dagligvarer";
+    specialOffer2.appendChild(header2);
+    var textArea2 = document.createElement("p");
+    textArea2.textContent = "bla bla bla blaa lfadsklfas lkfsadj æ";
+    specialOffer2.appendChild(textArea2);
+
+    //Here the first special offter is added to the footer
+    footer.appendChild(specialOffer2);
+
+    //Here the second special offer is created and styled to look right in the view
+    var specialOffer1 = document.createElement("div");
+    specialOffer1.style.float = "right";
+    specialOffer1.style.width = "32%";
+    specialOffer1.style.display = "inline-block";
+    var header1 = document.createElement("h1");
+    header1.textContent = "Tilbud 1 indenfor dagligvarer";
+    specialOffer1.appendChild(header1);
+    var textArea1 = document.createElement("p");
+    textArea1.textContent = "bla bla bla blaa lfadsklfas lkfsadj æ";
+    specialOffer1.appendChild(textArea1);
+
+    //And added to the footer
+    footer.appendChild(specialOffer1);  
+}
+
+
 function makeSkoView() {
     //Here the div for the shops is created and styled to look right in the view. The headline is created and added as well
     var shopsDiv = document.createElement("div");
@@ -519,7 +594,7 @@ function makeSkoView() {
     shopsDiv.style.width = "32%";
     shopsDiv.style.display = "inline-block";
     var shopHeadline = document.createElement("h1");
-    shopHeadline.textContent = "Butikker i denne kategori";
+    shopHeadline.textContent = "Butikker indenfor sko";
     shopsDiv.appendChild(shopHeadline);
     katbtn.style.visibility = "visible";
 
