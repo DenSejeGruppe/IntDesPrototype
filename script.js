@@ -35,33 +35,6 @@ window.onload = function(){
         this.down = down;
     }
 
-    /*
-    *Hardcodes all the points where the direction can be changed together with a boolean value telling wheter it can be change either left or right
-    */
-
-    var point1 = new changeDirectionPoint(320, 140, true, true, false, true);
-    var point2 = new changeDirectionPoint(320, 390, true, false, true, true);
-    var point3 = new changeDirectionPoint(110, 395, true, true, false, true);
-    var point4 = new changeDirectionPoint(110, 590, true, true, true, false);
-    var point5 = new changeDirectionPoint(170, 590, true, true, false, true);
-    var point6 = new changeDirectionPoint(250, 590, true, false, true, true);
-    var point7 = new changeDirectionPoint(165, 790, true, true, true, false);
-    var point8 = new changeDirectionPoint(320, 790, true, false, true, false);
-
-
-    /*
-    *Adds all the points to an array so that we can iterate through them
-    */
-
-    directionPoints.push(point1);
-    directionPoints.push(point2);
-    directionPoints.push(point3);
-    directionPoints.push(point4);
-    directionPoints.push(point5);
-    directionPoints.push(point6);
-    directionPoints.push(point7);
-    directionPoints.push(point8);
-
     function drawPathAktivitet(){
         aktivitetPath.beginPath();
         aktivitetPath.moveTo(890, 140);
@@ -240,12 +213,12 @@ function refresh() {
     addShop("WC", "WC","#0099FF", 905, 20, 0, 95, 100);
 
     //The row just below the top row
-    addShop("Indgang C", "Indgang","grey", 905, 120, 0, 95, 50);
+    addShop("Indgang C", "Indgang","grey", 905, 120, 0, 94, 50);
     /*
     *Draws a red circle to indicate where you are
     */
 
-    addShop("Misiter minit", "Service","#0099FF", 850, 170, 0, 50, 50);
+    addShop("Mister minit", "Service","#0099FF", 850, 170, 0, 50, 50);
 
 
     //This is the left part just below the top row
@@ -290,10 +263,6 @@ function registerShop(name, category, color, x, y, rotation, sizeX, sizeY) {
     this.sizeY = sizeY;
 }
 
-function getDirections(shopName) {
-
-}
-
 /*
 * This function adds a shop to our shop array. We will use the array to respond to users querries
 */
@@ -312,8 +281,11 @@ function makeRectangularShop(shop) {
     map.fillStyle=shop.color;
     map.fillRect(shop.x, shop.y, shop.sizeX, shop.sizeY);
     map.fillStyle = "black";
+    map.shadowBlur=14;
+    map.shadowColor="black";
     if (shop.sizeX >= 95) {
-        map.fillText(shop.name, shop.x + (shop.sizeX/2.5), shop.y + (shop.sizeY/2));
+        map.font = '13pt Calibri';
+        map.fillText(shop.name, shop.x + (shop.sizeX/4), shop.y + (shop.sizeY/2));
     }
     else {
         map.fillText(shop.name, shop.x, shop.y + (shop.sizeY/2));
@@ -354,7 +326,7 @@ function showShops(category, name) {
     }
     for (var shopIndex in shops) {
         if(shops[shopIndex].category === category) {
-            shops[shopIndex].color = "green";
+            shops[shopIndex].color = "#A9F5A9";
             makeRectangularShop(shops[shopIndex]);
         }
     }
