@@ -20,6 +20,7 @@ window.onload = function(){
     var canvas = document.getElementById("map");
     canvas.addEventListener("mousedown", clickOnCanvas, false);
     var map = canvas.getContext("2d");
+    map.save();
 
     var directionPoints = []; //All the points where the the direction can be changes
     var shops = []; //This is the array containing shop
@@ -28,7 +29,7 @@ window.onload = function(){
         this.x = x;
         this.y = y;
         this.left = left;
-        this.right = right;
+        this.right = right
         this.up = up;
         this.down = down;
     }
@@ -41,7 +42,7 @@ window.onload = function(){
     var point2 = new changeDirectionPoint(320, 390, true, false, true, true);
     var point3 = new changeDirectionPoint(110, 395, true, true, false, true);
     var point4 = new changeDirectionPoint(110, 590, true, true, true, false);
-    var point5 = new changeDirectionPoint(170, 590, true, true, false, true);
+    var point5 = new changeDirectionPoint(170, 590, true, true, false, true)
     var point6 = new changeDirectionPoint(250, 590, true, false, true, true);
     var point7 = new changeDirectionPoint(165, 790, true, true, true, false);
     var point8 = new changeDirectionPoint(320, 790, true, false, true, false);
@@ -94,7 +95,7 @@ window.onload = function(){
         }
         else if(searchString == "NEPHEW") {
             showShopByName("Aktivitet A");
-        }else if(searchString == "ABC"){
+        } else if(searchString == "ABC"){
             ABCView();
         }
     }
@@ -105,6 +106,8 @@ window.onload = function(){
 */
 
 function refresh() {
+    map.restore
+    map.clearRect(0, 0, 850, 1000);
     shops = []; //Resets the shops array in order to not add shops more than once!
     //This is the top row of shops
     addShop("H&M", "Mode børn","#0099FF", 0, 20, 0, 295, 100);
@@ -174,7 +177,40 @@ function registerShop(name, category, color, x, y, rotation, sizeX, sizeY) {
     this.sizeY = sizeY;
 }
 
-function getDirections(shopName) {
+/*
+* This function exploits the array of direction points array to draw a direction line
+*/
+
+function drawDirection(shopName) {
+    shopName = shopName.toUpperCase();
+    switch(shopName) {
+        case "FØTEX":
+            map.moveTo(890, 140);
+            map.lineTo(675, 140);
+            map.stroke();
+            map.arc(675, 140, 10, 0, 2 * Math.PI, false);
+            map.fillStyle = "green";
+            map.fill();
+            break;
+        case "SKO":
+            map.moveTo(890, 140);
+            map.lineTo(630, 140);
+            map.stroke();
+            map.arc(630, 140, 10, 0, 2 * Math.PI, false);
+            map.fillStyle = "green";
+            map.fill();
+            map.moveTo(630, 140);
+            map.lineTo(320, 140);
+            map.stroke();
+
+            map.moveTo(320, 140);
+            map.lineTo(320, 510);
+            map.stroke();
+            map.arc(320, 510, 10, 0, 2 * Math.PI, false);
+            map.fillStyle = "green";
+            map.fill();
+            break;
+    }
 
 }
 
@@ -265,11 +301,11 @@ function showShopByName(name) {
         footer.style.textAlign = "left";
     //The switch statement which makes the right view according to what is given to the method as a parameter
     switch (name) {
-        case "FØTEX": 
-        makeFoetexView();
+        case "FØTEX":
+        drawDirection("føtex");
         break;
         case "SKO":
-        makeSkoView();
+        drawDirection("sko");
         break;
         case "AKTIVITET A":
         case "NEPHEW":
